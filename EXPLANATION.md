@@ -10,7 +10,7 @@ The refresh condition only ran when:
 So a non-`OAuth2Token` value like a `dict` did not trigger refresh.  
 Header assignment also only happened for `OAuth2Token`, which produced an unauthenticated API request.
 
-## Why does your fix solve it?
+## Why does my fix solve it?
 The condition now refreshes whenever the token is not an `OAuth2Token` or when it is expired.  
 That guarantees invalid token shapes are replaced with a valid fresh token before sending the request, and the `Authorization` header is then attached correctly.
 
@@ -20,5 +20,5 @@ Tests now verify:
 - dict token refreshes,
 - expired token refreshes.
 
-## One realistic case / edge case your tests still don’t cover
+## One realistic case / edge case my tests still don’t cover
 If `refresh_oauth2()` fails (network/auth provider error), there is no retry or explicit error handling test for that failure path.
