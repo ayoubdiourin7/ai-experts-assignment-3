@@ -20,5 +20,5 @@ Tests now verify:
 - dict token refreshes,
 - expired token refreshes.
 
-## One realistic case / edge case my tests still don’t cover
+## One realistic case  case my tests still don’t cover
 If `refresh_oauth2()` fails (network/auth provider error), there is no retry or explicit error handling test for that failure path.
